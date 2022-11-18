@@ -1,1 +1,1 @@
-oadstring(game:HttpGet("https://raw.githubusercontent.com/aqlite/gui-by-aqlitee/main/protected.txt", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/aqlite/gui-by-aqlitee/main/protected.txt", true))()
