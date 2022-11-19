@@ -42,5 +42,4 @@ end)
 Tab2Section:NewButton("Infinite Yield","Op command script",function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
-
--------
+-------'zxd#-%#@/55<^:;'b■■\£《¥₩■《♤¡¿▪︎☆¤`\€😉☺️☺️😝☺️😗☺️🤑🤑₩¥€□.《》
