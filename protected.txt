@@ -13,7 +13,7 @@ local Tab3Section = Tab3:NewSection("Got helped")
 
 ---Buttons
 
-Tab1Section:NewButton("Infinite juml","Allows you to jump Infinite",function()
+Tab1Section:NewButton("Infinite jump","Allows you to jump Infinite",function()
 local InfiniteJumpEnabled = true
 game:GetService("UserInputService").JumpRequest:connect(function()
 	if InfiniteJumpEnabled then
