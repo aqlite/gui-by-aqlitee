@@ -1,12 +1,12 @@
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
-local Window = Library.CreateLib("Exploiters Bedwars Hub", "Ocean")
+local Window = Library.CreateLib("Aqlitees Bedwars Gui", "BloodyTheme")
 local Tab1 = Window:NewTab("Main")
 local Tab2 = Window:NewTab("Credit")
 local Tab3 = Window:NewTab("Esp")
 
 local Tab1Section = Tab1:NewSection("Main script")
-local Tab2Section = Tab2:NewSection("Owner: Exploiter Dungeon")
-local Tab2Section = Tab2:NewSection("helper: icebear")
+local Tab2Section = Tab2:NewSection("Owner: Aqlitee")
+local Tab2Section = Tab2:NewSection("helper: jn hh gaming")
 local Tab3Section = Tab3:NewSection("Esp")
 
 Tab1Section:NewButton("Inf Jump","Gives You Inf Jump",function()
