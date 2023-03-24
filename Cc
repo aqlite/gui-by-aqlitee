@@ -1,0 +1,7 @@
+while true do
+local me = game:GetService("Players").LocalPlayer
+local target = game.Workspace.
+local Rocket = me.Backpack:FindFirstChild("RocketJumper") or me:FindFirstChild("RocketJumper")
+Rocket.FireRocket:FireServer(target.HumanoidRootPart.Position, target.HumanoidRootPart.Position + Vector3.new(0, 5, 0))
+wait()
+end end
