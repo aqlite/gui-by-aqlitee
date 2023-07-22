@@ -1,10 +1,17 @@
+-- script: 1
 while true do
-local me = game:GetService("Players").LocalPlayer
-local target = game.Workspace.Random
-local Rocket = me.Backpack:FindFirstChild("RocketJumper") or me:FindFirstChild("RocketJumper")
-Rocket.FireRocket:FireServer(target.HumanoidRootPart.Position, target.HumanoidRootPart.Position + Vector3.new(0, 5, 0))
-Rocket.FireRocket:FireServer(target.HumanoidRootPart.Position, target.HumanoidRootPart.Position + Vector3.new(0, 5, 0))
-Rocket.FireRocket:FireServer(target.HumanoidRootPart.Position, target.HumanoidRootPart.Position + Vector3.new(0, 5, 0))
-print("Fired")
-task.wait(0.5)
+local ohNumber1 = 7
+local ohInstance2 = workspace.chan237.Humanoid
+local ohNumber3 = 40
+game:GetService("Players").LocalPlayer.Backpack["Diamond Blade Sword"].GearScript.Controller:InvokeServer(ohNumber1, ohInstance2, ohNumber3)
 end
+
+-- Script 2:
+while wait do
+local me = game:GetService("Players").LocalPlayer
+local target = game.Workspace.chan237
+local Rocket = me.Backpack:FindFirstChild("RocketJumper") or me:FindFirstChild("RocketJumper")
+Rocket.FireRocket:FireServer(target.Head.Position, target.Head.Position + Vector3.new(0, 2, 0))
+Rocket.FireRocket:FireServer(target.Head.Position, target.Head.Position + Vector3.new(0, 2, 0))
+Rocket.FireRocket:FireServer(target.Head.Position, target.Head.Position + Vector3.new(0, 2, 0))
+wait(0.5) end
