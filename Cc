@@ -1,9 +1,11 @@
 -- script: 1
-while true do
-local ohNumber1 = 7
-local ohInstance2 = workspace.chan237.Humanoid
-local ohNumber3 = 40
-game:GetService("Players").LocalPlayer.Backpack["Diamond Blade Sword"].GearScript.Controller:InvokeServer(ohNumber1, ohInstance2, ohNumber3)
+while task.wait() do
+    pcall(function()
+        local Something = 7
+        local PlayerHumanoid = workspace["PLAYER_NAME"].Humanoid
+        local Damage = math.huge
+        game:GetService("Players").LocalPlayer.Backpack["Diamond Blade Sword"].GearScript.Controller:InvokeServer(Something, PlayerHumanoid, Damage)
+    end)
 end
 
 -- Script 2:
@@ -15,3 +17,18 @@ Rocket.FireRocket:FireServer(target.Head.Position, target.Head.Position + Vector
 Rocket.FireRocket:FireServer(target.Head.Position, target.Head.Position + Vector3.new(0, 2, 0))
 Rocket.FireRocket:FireServer(target.Head.Position, target.Head.Position + Vector3.new(0, 2, 0))
 wait(0.5) end
+--script 1 kill all
+while task.wait() do
+    pcall(function()
+        for i,player in pairs(game:GetService("Players"):GetPlayers()) do
+            
+            if (not player.Character:FindFirstChild("Humanoid")) then continue end
+            if player.UserId == game:GetService("Players").LocalPlayer.UserId then continue end
+            
+            local Something = 7
+            local PlayerHumanoid = player.Character.Humanoid
+            local Damage = math.huge
+            game:GetService("Players").LocalPlayer.Backpack["Diamond Blade Sword"].GearScript.Controller:InvokeServer(Something, PlayerHumanoid, Damage)
+        end
+    end)
+end
