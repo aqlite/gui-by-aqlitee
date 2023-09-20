@@ -9,14 +9,16 @@ while task.wait() do
 end
 
 -- Script 2:
-while wait do
-local me = game:GetService("Players").LocalPlayer
-local target = game.Workspace.chan237
-local Rocket = me.Backpack:FindFirstChild("RocketJumper") or me:FindFirstChild("RocketJumper")
-Rocket.FireRocket:FireServer(target.Head.Position, target.Head.Position + Vector3.new(0, 2, 0))
-Rocket.FireRocket:FireServer(target.Head.Position, target.Head.Position + Vector3.new(0, 2, 0))
-Rocket.FireRocket:FireServer(target.Head.Position, target.Head.Position + Vector3.new(0, 2, 0))
-wait(0.5) end
+while wait() do
+    pcall(function()
+        local me = game:GetService("Players").LocalPlayer
+        local target = game.Workspace.tiger_face
+        local Rocket = me.Backpack:FindFirstChild("RocketJumper") or me:FindFirstChild("RocketJumper")
+        Rocket.FireRocket:FireServer(target.Head.Position, target.Head.Position + Vector3.new(0, 2, 0))
+        Rocket.FireRocket:FireServer(target.Head.Position, target.Head.Position + Vector3.new(0, 2, 0))
+        Rocket.FireRocket:FireServer(target.Head.Position, target.Head.Position + Vector3.new(0, 2, 0))
+    end)
+end
 --script 1 kill all
 while task.wait() do
     pcall(function()
