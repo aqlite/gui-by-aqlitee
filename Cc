@@ -36,11 +36,45 @@ while task.wait() do
 end
 
 -- script 2 v2
-
 -- Created with Lua V3
-
+ local args = {
+  [1] = 169602103
+ }
+ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ToggleAsset"):InvokeServer(unpack(args))
+ 
 getgenv().SKToggle = true
-local targetName = "Polar"
+local targetName = "O23"
+
+local function findPlayerByName(userName)
+  local lowerUserName = userName:lower()
+  for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+    local playerUserName = player.Name:lower()
+    local playerDisplayName = player.DisplayName and player.DisplayName:lower() or ""
+    if playerUserName:find(lowerUserName, 1, true) or playerDisplayName:find(lowerUserName, 1, true) then
+      return player
+    end
+  end
+  return nil
+end
+
+while getgenv().SKToggle and task.wait() do
+  local targetPlayer = findPlayerByName(targetName)
+  local targetHead = targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild('Head')
+   
+if targetHead then
+  pcall(function()
+    local me = game:GetService("Players").LocalPlayer
+    local target = targetHead
+    local Rocket = me.Backpack:FindFirstChild("RocketJumper") or me:FindFirstChild("RocketJumper")
+    Rocket.FireRocket:FireServer(target.Position, target.Position + Vector3.new(0, 2, 0))
+    end)
+end
+end
+
+-- script 1 v2:
+getgenv().SKToggle = true
+local targetName = "placeholder"
+local damage = math.huge
 
 local function findPlayerByName(userName)
     local lowerUserName = userName:lower()
@@ -56,25 +90,11 @@ end
 
 while getgenv().SKToggle and task.wait() do
     local targetPlayer = findPlayerByName(targetName)
-    local targetHead = targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild('Head')
-    
-if targetHead then
-    pcall(function()
-        local me = game:GetService("Players").LocalPlayer
-        local target = targetHead
-        local Rocket = me.Backpack:FindFirstChild("RocketJumper") or me:FindFirstChild("RocketJumper")
-        Rocket.FireRocket:FireServer(target.Head.Position, target.Head.Position + Vector3.new(0, 2, 0))
-        wait()
-    end)
+    local targetHumanoid = targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild('Humanoid')
+
+    if targetHumanoid then
+        pcall(function()
+            game:GetService("Players").LocalPlayer.Backpack["Diamond Blade Sword"].GearScript.Controller:InvokeServer(7, targetHumanoid, damage)
+        end)
+    end
 end
-
-
-
-
-
-
-
-
-
-
-
