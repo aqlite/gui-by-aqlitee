@@ -37,40 +37,39 @@ end
 
 -- script 2 v2
 -- Created with Lua V3
- local args = {
-  [1] = 169602103
- }
- game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ToggleAsset"):InvokeServer(unpack(args))
- 
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes").ToggleAsset:InvokeServer(169602103)
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes").WearAsset:InvokeServer(169602103)
+
 getgenv().SKToggle = true
 local targetName = "O23"
 
+local me = game:GetService("Players").LocalPlayer
+
 local function findPlayerByName(userName)
-  local lowerUserName = userName:lower()
-  for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
-    local playerUserName = player.Name:lower()
-    local playerDisplayName = player.DisplayName and player.DisplayName:lower() or ""
-    if playerUserName:find(lowerUserName, 1, true) or playerDisplayName:find(lowerUserName, 1, true) then
-      return player
+    local lowerUserName = userName:lower()
+    for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+        local playerUserName = player.Name:lower()
+        local playerDisplayName = player.DisplayName and player.DisplayName:lower() or ""
+        if playerUserName:find(lowerUserName, 1, true) or playerDisplayName:find(lowerUserName, 1, true) then
+        return player
+        end
     end
-  end
-  return nil
+    return nil
 end
 
 while getgenv().SKToggle and task.wait() do
-  local targetPlayer = findPlayerByName(targetName)
-  local targetHead = targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild('Head')
-   
-if targetHead then
-  pcall(function()
-    local me = game:GetService("Players").LocalPlayer
-    local target = targetHead
-    local Rocket = me.Backpack:FindFirstChild("RocketJumper") or me:FindFirstChild("RocketJumper")
-    Rocket.FireRocket:FireServer(target.Position, target.Position + Vector3.new(0, 2, 0))
-    end)
-end
-end
+    local targetPlayer = findPlayerByName(targetName)
+    local targetHead = targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild('Head')
 
+    if targetHead then
+        pcall(function()
+            local Rocket = me.Backpack:FindFirstChild("RocketJumper") or me:FindFirstChild("RocketJumper")
+            if Rocket then
+                Rocket.FireRocket:FireServer(targetHead.Position, targetHead.Position + Vector3.new(0, 2, 0))
+            end
+        end)
+    end
+end
 -- script 1 v2:
 getgenv().SKToggle = true
 local targetName = "placeholder"
